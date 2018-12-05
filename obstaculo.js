@@ -1,4 +1,4 @@
-function Obstacle(x, size, horizon, color) {
+function Obstacle(x, size, horizonte, color) {
 
   this.x = x;
   this.y = horizonte - size;
