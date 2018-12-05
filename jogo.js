@@ -22,17 +22,16 @@ var pum;
 
 function preload() {
 	//heroi
-	for(i=0;i<NUM_IMAGES;i++){
-		figs[i]= loadImage(PATH+i+'.png');
-	}
+for(i=0;i<NUM_IMAGES;i++){
+	figs[i]= loadImage(PATH+i+'.png');
+}
 
   //fases
   Cenario1 = loadImage('img/florest_bg.jpg');
   Cenario2 = loadImage('img/city_bg.png');
   Cenario3 = loadImage('img/sewer_bg.jpg');
   Cenario4 = loadImage('img/ufrn.png');
-  //carrega o som do jogo
-   
+  //carrega os sons do jogo
    pum = loadSound("pum.ogg", loaded);
    som = loadSound("airship.ogg");
 }
@@ -42,36 +41,27 @@ function setup() {
 	
 	som.loop();
 	som.setVolume(0.5);
-
-    createCanvas(1280, 720);
-
-    textAlign(CENTER);
-
-    horizonte = height - 60;
-
+	createCanvas(1280, 720);
+	textAlign(CENTER);
+	horizonte = height - 60;
 	pontuacao = 0;
 	VelocidadeObstaculo = 6;
-
 	var size = 20;
 	dino = new TRex(size * 2, height - horizonte, size);
-
-  textSize(20);
-  	 
+	textSize(20); 
 }
 function loaded(){
   pum.play();
 }
-
 function draw() {
 	
-		
 if(pontuacao < 1000){
 	background(Cenario1);
 	fill(255);
 	noStroke();
 	text("Fase 1: FLORESTA", width / 6, 30);
 } if(pontuacao>=1000){
-    background(Cenario2);
+	background(Cenario2);
 	fill(255);
 	noStroke();
 	text("Fase 2: CIDADE", width / 6, 30);
@@ -82,22 +72,16 @@ if(pontuacao < 1000){
 	text("Fase 3: ESGOTO", width / 6, 30);
 } if(pontuacao>=5000){
 	background(Cenario4);
-    fill(0);
+    	fill(0);
 	noStroke();
 	text("Fase 4: ECT", width / 6, 30);
 } if(disparo===true){
 	loaded();
 }
-	
-
 	drawHUD();
-
 	LidarNivel(frameCount);
-
 	dino.update(horizonte);
-
-    handleObstaculos();
-
+	handleObstaculos();
 }
 
 /**
@@ -105,17 +89,17 @@ if(pontuacao < 1000){
 	*/
 function drawHUD() {
 
-    /* desenhar linha */
-    stroke(255);
-    strokeWeight(2);
-    line(0, horizonte, width, horizonte);
+/* desenhar linha */
+    	stroke(255);
+    	strokeWeight(2);
+    	line(0, horizonte, width, horizonte);
 
-	/* marcar pontuação */
+/* marcar pontuação */
 	fill(255);
 	noStroke();
-    text("Pontuação: " + pontuacao, width / 2, 30);
+  	text("Pontuação: " + pontuacao, width / 2, 30);
 
-	/* desenhar personagem */
+/* desenhar personagem */
 	dino.draw();
 }
 
@@ -165,8 +149,7 @@ function NovoObstaculo(n) {
 
 	var col = color(random(255), random(255), random(255));
 	var size = random(30) + 20;
-    var obs = new Obstacle(width + size, size, horizonte, col);
-
+	var obs = new Obstacle(width + size, size, horizonte, col);
   obstaculos.push(obs);
 }
 
