@@ -34,7 +34,7 @@ Obstacle.prototype.draw = function() {
 	*/
 Obstacle.prototype.hits = function(dino) {
 
-    var metadeTamanho= this.size / 2;
+    	var metadeTamanho= this.size / 2;
 	var distanciaMinima = metadeTamanho+ (dino.raio); // mais próximo antes da colisão
 
 	/* encontrar coordenadas do centro */
